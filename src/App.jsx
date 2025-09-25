@@ -26,12 +26,12 @@ const App = () => {
   const [isloading, setisloading] = useState(false);
 
 
-  const fetchMovies = async () => {
+  const fetchMovies = async (query = '') => {
     setisloading(true);
     setErrorMessage('');
 
     try {
-      const endpoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
+      const endpoint = query ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}`:`${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
       const response = await fetch(endpoint, API_OPTIONS);
 
       if(!response.ok){
@@ -56,8 +56,8 @@ const App = () => {
   }
 
   useEffect(() => {
-    fetchMovies();
-  }, []);
+    fetchMovies(searchTerm);
+  }, [searchTerm]);
   
 
   return (
@@ -72,7 +72,6 @@ const App = () => {
           </header>
 
           <Search searchTerm={searchTerm} setsearchTerm={setsearchTerm}/>
-          <h1>{searchTerm}</h1>
            <section className='all-movies'>
             <h2 className='mt-[40px]'>All Movies</h2>
 
