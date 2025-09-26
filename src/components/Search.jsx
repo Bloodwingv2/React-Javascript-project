@@ -8,7 +8,7 @@ const search = ({searchTerm, setsearchTerm}) => {
 
             <input 
                 type ="text"
-                placeholder="Search Through Thousands of Movies"
+                placeholder="Search Through Thousands of Movies using TMDB Database"
                 value = {searchTerm}
                 onChange={(e) => setsearchTerm(e.target.value)}
             />

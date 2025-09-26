@@ -132,7 +132,9 @@ const App = () => {
           </h2>
 
           {isLoading ? (
-            <Spinner />
+            <div className = 'flex justify-center min-h-[200px]' > 
+              <Spinner/>
+            </div>
           ) : errorMessage ? (
             <p className='text-red-500'>{errorMessage}</p>
           ) : (
