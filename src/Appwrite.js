@@ -58,7 +58,7 @@ export const updateSearchCount = async (searchTerm, movie) => {
     }
 };
 
-export const getTrendingSearches = async (limit = 5) => {
+export const getTrendingSearches = async (limit = 9) => {
     try {
         const { data, error } = await supabase
             .from('search_metrics')
